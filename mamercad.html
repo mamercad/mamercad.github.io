@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="yes">
+<title>Mark Mercado | Systems &amp;amp; Site Reliability Engineer</title>
+<link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
+
+<style type="text/css">
+#footer {
+  display: none;
+}
+#footer + p {
+  width: 100%;
+  font-size: 11px;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mark Mercado</h1>
+
+<h2>Systems &amp; Site Reliability Engineer</h2>
+
+<blockquote>
+  <p><a href="mailto:mamercad@gmail.com">mamercad@gmail.com</a>
+  +1-810-223-3658</p>
+</blockquote>
+
+<hr />
+
+<h3 id="profile">Profile</h3>
+
+<p>I am an experienced system engineer that&#8217;s been working in technology for over 20 years.
+I love designing greenfield environments, but don’t mind unwinding and refactoring brownfield ones.
+I approach the management of systems from the perspective of a developer.
+I thoroughly enjoy implementing automation and monitoring.
+I have plenty of real-world experience in datacenter and cloud operations, virtualization, operating systems, databases, development and system integration.
+I learn quickly and have very strong analytics problem-solving skills.
+I can work on a team but am most productive when given tough problems to solve and the creative freedom to implement them.
+I firmly believe in open-source software and giving back.
+I am always looking out for creative challenges and complicated systems problems to tackle.
+As it pertains to education, I plan on pursuing a PhD when my youngest child enters school (a few years out).
+I have set up and maintained, typically from scratch, numerous mission critical multi-tier systems.
+In most of my positions, I typically maintain a large role, generally working from the metal all the way to application.
+As of late, I spend most of mime working towards “infrastructure from code” and automation in general.
+I want to continue evolving as a systems engineer and a developer.
+I am comfortable and experienced in developing the full stack.
+In order to be happy, I need an unrestricted Macbook, the freedom to use (and to contribute back) to the open source community, and the ability to work remotely from time to time.</p>
+
+<hr />
+
+<h3 id="skills">Skills</h3>
+
+<ul>
+<li><dl>
+<dt>Systems Design</dt>
+<dd>Designing and building systems is quite simply, what I do best.
+I&#8217;ve built so many systems over the years.
+I&#8217;m comfortable with traditional systems (physical and virtual) as well as modern ones (containers and orchestration).</dd>
+</dl></li>
+<li><dl>
+<dt>Systems Monitoring</dt>
+<dd>When building systems, I build in monitoring as a fundamental feature, not an afterthought.
+I thorougly enjoy implementing meaningful and actionable monitoring.
+I&#8217;m comfortable with traditional monitoring (Nagios, Icinga and Zabbix) as well as modern implementations (Sensu, Prometheus and Grafana).</dd>
+</dl></li>
+<li><dl>
+<dt>Systems Automation</dt>
+<dd>I firmly believe in building systems with the use of automations tooling frameworks, not manual steps.
+I&#8217;m comfortable with traditional configuration management (Chef, Puppet, Salt, Ansible) and modern container-based solutions (Terraform, Docker, Kubernetes and Helm).</dd>
+</dl></li>
+</ul>
+
+<hr />
+
+<h3>Certifications</h3>
+
+<ul>
+<li>Going through the AWS learning paths (in progress)</li>
+<li>Microsoft Certified Azure Administrator Associate (earned)</li>
+<li>Sun Certified Systems Administrator for Solaris 10 Operating System (earned)</li>
+</ul>
+
+<hr />
+
+<h3>Publications</h3>
+
+<ul>
+<li>Cybersecurity in Banking and Financial Sector: Security Analysis of a Mobile Banking Application
+(2013)
+
+<ul>
+<li>Panja, B., Fattaleh, D., Mercado, M., Robinson, A., Meharia, P.</li>
+<li>Published in 2013 International Conference on Collaboration Technologies and Systems (CTS) (thanks Dr Mani)</li>
+</ul></li>
+</ul>
+
+<hr />
+
+<h3>Projects (Recent)</h3>
+
+<ul>
+<li>The Foreman
+
+<ul>
+<li>Deploying this throughout our on-premise cloud for virtual and metal provisioning</li>
+</ul></li>
+<li>Artifactory
+
+<ul>
+<li>Implementing the infrastructure (AWS EKS) with Terragrunt and Terraform</li>
+<li>Implementing the application in Helm, Flux and Istio</li>
+</ul></li>
+<li>Image Pipeline
+
+<ul>
+<li>Jenkins pipeline which builds our cloud image, notifications go to Slack</li>
+<li>Uses Packer to Kickstart an ISO, followed by shell and Puppet provisioning</li>
+<li>Last step is an automatic disk image upload and import to AWS (AMI)</li>
+</ul></li>
+<li>OpenStack
+
+<ul>
+<li>Implemented MAAS to initially bare-metal provision the nodes (from the BMC)</li>
+<li>Small PoC environment consisting of Horizon, Neutron, Magnum, Keystone, Cinder, Glance</li>
+<li>Nova and Zun used to benchmark our key applications and test as a Terraform endpoint</li>
+</ul></li>
+<li>Atlassian Upgrade
+
+<ul>
+<li>Hardware upgrade, software lift-and-shift</li>
+<li>Added Consul and Prometheus functionality along the way (node and Apache exporters)</li>
+</ul></li>
+<li>Device42 Upgrade
+
+<ul>
+<li>Software lift-and-shift (two major versions, 13.x to 15.x)</li>
+<li>Implemented warm-standby to eliminate single-instance SPoF (automatic daily refresh)</li>
+</ul></li>
+<li>Consul Project
+
+<ul>
+<li>Deployed Consul clusters to all of our DCs</li>
+<li>Using Consul for service discovery</li>
+<li>Implemented “DNS forwarding” (serving up the “consul” TLD)</li>
+<li>Turning all Consul servers into DNS slaves (they’re acting as site name servers)</li>
+</ul></li>
+<li>SumoLogic Project
+
+<ul>
+<li>Wrote the Puppet class which leverages the upstream Docker image</li>
+<li>Integrated with Sensu for health checks and Consul for service discovery</li>
+<li>Easy enough for our customers to extend the functionality (additional collectors)</li>
+<li>Configured all of our clients to send syslog to SumoLogic</li>
+</ul></li>
+<li>Puppet in AWS (ASG)
+
+<ul>
+<li>Wrote the Terraform/Terragrunt manifest</li>
+<li>Handles remote state by way of S3 and DynamoDB</li>
+<li>The ASG is fronted by ELB (uses crypto from ACM)</li>
+<li>Least*privilege IAM policies are used</li>
+<li>The Puppet servers leverage EFS for shared storage</li>
+<li>Simple CloudWatch policies control the ASG (currently CPU utilization)</li>
+<li>VPCs and SGs are used for network isolation</li>
+<li>The Puppet servers used cloud-init for last-minute configuration</li>
+</ul></li>
+<li>Air-gapped Root CA
+
+<ul>
+<li>Created a process to automate the creation of our root CA (all but crypto)</li>
+<li>Leverages Vagrant, Packer and Linux Live Kit (&#8220;vagrant up&#8221; to USB live distro)</li>
+</ul></li>
+</ul>
+
+<hr />
+
+<h3 id="technical">Technical</h3>
+
+<ul>
+<li>Highly proficient at all levels with UNIX-like operating systems
+
+<ul>
+<li>The major flavors of Linux (Redhat/CentOS/Oracle, Ubuntu/Debian)</li>
+<li>Any of the BSDs (primarily FreeBSD and OpenBSD)</li>
+<li>SunOS/Solaris (10 and 11), though I would not consider these anymore</li>
+</ul></li>
+<li>Highly proficient in traditional datacenter administration (racking, stacking, cabling)</li>
+<li>Highly proficient in the administration of virtualization environments (VMware, Qemu/KVM and Xen)</li>
+<li>Highly proficient in network monitoring (Zabbix, Nagios, Icinga, Sensu, Prometheus, Grafana)</li>
+<li>Highly provicient in configuration management (Salt, Ansible, Chef, Puppet and Spacewalk)</li>
+<li>Comfortable working with recent versions of Microsoft Windows (2003, 2008, 2012, 2016 7, 8, 10)
+
+<ul>
+<li>Though, I would never choose Windows for a production deployment</li>
+</ul></li>
+<li>Well-versed in network administration and security
+
+<ul>
+<li>Network security scanning and auditing, packet filtering, implementing local security policies</li>
+</ul></li>
+<li>Good understanding of networking (switching, routing, and application layers)</li>
+<li>Highly proficient in the installation, configuration, and maintenance (patching) of server software such as
+
+<ul>
+<li>OpenSSH, Apache HTTPD and Tomcat, Sendmail, ISC BIND and DHCPD, HAProxy, Nginx</li>
+</ul></li>
+<li>Comfortable in the adminsitration of MySQL and PostgreSQL</li>
+<li>Well-versed in the C, C++, Perl, and PHP programming languages; written numerous programs in all listed</li>
+<li>Experienced in Python (2.x and 3.x) and Ruby; written numerous programs in all listed</li>
+<li>In the process of learning the Go and Rust languages (have only currently modified existing programs)</li>
+<li>Experienced in the use of sed, awk, and Bourne-style shells</li>
+<li>Comfortable with Java, JavaScript, SQL, Oracle PL/SQL, HTML, and Intel assembly language</li>
+<li>Well-versed in source control, primarily CVS, Subversion and of course, Git</li>
+<li>Well-versed in integration, in general (APIs), enjoy tying systems together and building pipelines</li>
+<li>Well-versed in SSO, responsible for Cosign and Shibboleth (SAML) in the past</li>
+<li>Experienced in Splunk, OSSEC, Elastisearch, Logstash, Kibana</li>
+<li>Experienced in OpenStack, Docker and Kubernetes (what I&#8217;m currently focused on)</li>
+</ul>
+
+<hr />
+
+<h3 id="experience">Experience</h3>
+
+<h4>Barracuda Networks (Ann Arbor, MI; Jan 2018 - present)</h4>
+
+<p><em>Lead Site Reliability Engineer, Cloud/Infrastructure Operations</em></p>
+
+<p>Responsible for the overall infrastructure operation of Barracuda’s hybrid cloud (multiple on-premise datacenter as well as a sizable public cloud footprint).
+I work in the System Engineering team and our focus is on platform infrastructure development.
+Each of us on the team is on-call 24/7 for one week, every few months.
+As is typical, we live in two worlds, the old an the new. We spend our time maintaining/migrating legacy systems into the new ones which we build.
+Our infrastructure consists of, predominantly, thousands of Linux machines and large amount of containers.
+In the last year, I&#8217;ve produced more than 4,300 commits to our codebase and resolved more than 400 bugs.</p>
+
+<ul>
+<li>Currently focusing on new software deployments based on Kubernetes, Flux and Istio</li>
+<li>Implementing Stratoscale (AWS-like private cloud) for production</li>
+<li>Implemented Ubuntu MAAS for bare-metal provisioning</li>
+<li>Implemeting the Foreman for datacenter management
+
+<ul>
+<li>Physical and virtual provisioning (supporting PXE and HTTP installations)</li>
+<li>Simplifies DHCP and DNS management (DHCP is done, DNS is on the table)</li>
+</ul></li>
+<li>Implemented an OpenStack PoC deployment consisting of the following sub-projects:
+
+<ul>
+<li>Horizon, Neutron, Magnum, Keystone, Cinder, Glance, Nova, Zun</li>
+</ul></li>
+<li>Image building Jenkins pipelines leveraging Packer (and Vagrant for testing)</li>
+<li>Cloud infrastructures leverating Terraform (fronted by Terragrunt for DRY)</li>
+<li>Administering and maintaining the Atlassian suite (Confluence, Jira and Bitbucket)</li>
+<li>Administering and maintaining Device42 (datacenter inventory management)</li>
+<li>Working on the modernization of numerous legacy systems (cutting down technical debt):
+
+<ul>
+<li>Operating systems conversions, automating manual deployments, creating systems integrations</li>
+</ul></li>
+<li>Completely all-in for “infrastructure as code”
+
+<ul>
+<li>Configuration management, orchestration, testing/QA, deployments</li>
+<li>Just about all Linux and Puppet</li>
+<li>All configuration is stored in Git</li>
+<li>All orchestration goes through Jenkins</li>
+</ul></li>
+<li>Working with numerous teams to make sure that our cloud meets their requirements
+
+<ul>
+<li>Manufacturing, platform, testing/QA, engineering, product, cross-functional</li>
+</ul></li>
+<li>Created custom Prometheus Exporters (Docker-based deployments) and Grafana dashboards</li>
+<li>Built and extended numerous infrastructure profiles, such as:
+
+<ul>
+<li>Foreman, Qemu/KVM (libvirt), Docker, LibreNMS</li>
+</ul></li>
+<li>Deprecated legacy software mirrors in favor of Artifactory (virtual lift-and-shift)</li>
+<li>Created numerous packages (typically by way of Jenkins pipelines and fpm)</li>
+<li>Wrote numerous runbooks for the Operations Engineering team (first line support)</li>
+<li>Created our cloud images and our Vagrant boxes (both built with Packer)</li>
+</ul>
+
+<h4>TotalCAE (Ann Arbor, MI; Nov 2016 - Jan 2018)</h4>
+
+<p><em>Senior HPC Consultant</em></p>
+
+<p>Embedded as a private sub-contractor in one of Detroit&#8217;s &#8220;big three&#8221; automakers working in the HPC (high-performance computing) group.
+Responsible for administering a fairly large HPC cluster (more than 1200 nodes) used in vehicular testing and simulation.
+I was part of a really small team (three members), and we were on-call every three weeks (24/7 for a week).
+The environment was highly driven by SLAs.
+We had to work with both the internal and the external (other vendors/contractors) teams, which was challenging.</p>
+
+<ul>
+<li>Administering a > 1,200 node HPC supercomputing cluster</li>
+<li>Operating system was RHEL 6.x frontend (utility) and backend (compute)</li>
+<li>Administered Seagate CS9000 for the Lustre parallel filesystem (~ 3/4 PB)
+
+<ul>
+<li>Found and fixed numerous bugs which were submitted back</li>
+</ul></li>
+<li>Ethernet and Infiniband interconnect (Mellanox UFM)</li>
+<li>HPE Cluster Management Utility for imaging and bare-metal deployment</li>
+<li>Implemented configuration management (Ansible)
+
+<ul>
+<li>We used this in addition to imaging (making small changes was faster this way)</li>
+</ul></li>
+<li>Complete various in-house integrations (monitoring, reporting, ticketing, etc)</li>
+<li>Administer the job scheduler (Altair PBS Pro)</li>
+<li>Assisted engineering (users) with backend job problems (troubleshooting)</li>
+<li>Implemented numerous custom dashboards (Collectd, Monit, InfluxDB, Grafana)</li>
+<li>Implemented new monitoring (Zabbix) and maintained legacy (Xymon)</li>
+<li>Implemented centralized logging and analytics (Elastic Stack)</li>
+<li>Implemented Robin Hood for Lustre (scratch area) cleanup
+
+<ul>
+<li>This was far superior than the typical &#8220;cron/find/rm&#8221; strategy</li>
+</ul></li>
+<li>Numerous custom scripts developed and maintained to support operation</li>
+</ul>
+
+<h4>University of Michigan-Flint (Flint, MI; Feb 2014 - Mar 2017)</h4>
+
+<p><em>Systems Administration (UNIX Systems Administrator, team lead, full-time staff)</em></p>
+
+<p>Responsibilities:</p>
+
+<ul>
+<li>Administer the VMware ESX virtualization infrastructure</li>
+<li>Administer the Dell Compellent/EqualLogic storage arrays</li>
+<li>Administer the Oracle Virtual Networking fabric (Inﬁniband</li>
+<li>Administer the Banner environment (ERP)
+
+<ul>
+<li>Applications: Oracle Fusion Middleware, Oracle Forms, Oracle Database</li>
+<li>Operating systems: Oracle Linux 5.x and 6.x, Solaris 10 and 11</li>
+</ul></li>
+<li>Administer the Blackboard environment (LMS)
+
+<ul>
+<li>Applications: HAProxy, Keepalived, Tomcat, Apache, NFS, Oracle Database</li>
+<li>Operating Systems: Oracle Linux 6.x</li>
+</ul></li>
+<li>Implement and administer the WeBWorK environment (math-centric LMS):
+
+<ul>
+<li>Applications: WeBWorK, Apache + mod perl, MySQL</li>
+<li>Operating systems: Oracle Linux 6.x</li>
+<li>Custom: Wrote the snapshot process (Blackboard to WeBWorK)</li>
+</ul></li>
+<li>Implement and administer the campus Active Directory and SSO environments:
+
+<ul>
+<li>Applications: Shibboleth (v3) and Cosign (conﬁgured for HA with Keepalived and Memcache)</li>
+<li>Operating systems: Oracle Linux 6.x</li>
+</ul></li>
+<li>Architect and administer the campus disaster recovery environment in Amazon AWS
+
+<ul>
+<li>EC2, S3, RDS, IAM, Route53, Workspaces, VTL</li>
+<li>Implemented Bind in EC2 (off-campus DNS, slaves to on-prem)</li>
+</ul></li>
+<li>Administer the campus Backup products: ARCserve and Barracuda</li>
+<li>Administer the operating systems for the database group (Ellucian Banner and DegreeWorks)</li>
+<li>Implement and administer the following IT supporting resources:
+
+<ul>
+<li>Gitlab (source control), Jenkins (CI/CD), Zabbix (monitoring), Redmine (portal, wiki), Oracle Enterprise Manager, PWM (password self-service tied to AD), Shell (generic shell server tied to AD), Slack (messaging, numerous integrations)</li>
+</ul></li>
+<li>Determine equipment and software lifecycles and budget forecasting</li>
+<li>Work closely on projects with other functional units on campus:
+
+<ul>
+<li>Registrar, Financial Aid, Cashier, Academic Advising, Reporting</li>
+</ul></li>
+</ul>
+
+<p>Projects:</p>
+
+<ul>
+<li>Duo
+
+<ul>
+<li>U-M initiative; switched Weblogin from RSA to Duo</li>
+<li>Flint runs own instance of Cosign</li>
+<li>Deployed new Cosign servers to facilitate the migration</li>
+<li>Process almost entirely automated with Ansible</li>
+<li>Manual DNS cutover; little to no interruption in service</li>
+</ul></li>
+<li>Zabbix 3.x
+
+<ul>
+<li>Currently running 2.x in production</li>
+<li>Redesigning for 3.x, distributed architecture</li>
+<li>Active/passive frontend tier (Apache httpd) with Heartbeat</li>
+<li>Active/passive server tier (Zabbix server) with Heartbeat</li>
+<li>Active/active database tier (MariaDB cluster)</li>
+<li>Single-instance self-contained proxy tier (Zabbix proxy and MariaDB)</li>
+</ul></li>
+<li>Shibboleth
+
+<ul>
+<li>Implemented Shibboleth IdP 3.x (supporting SAML and CAS)</li>
+<li>Authentication comes from Cosign (we support all “three” SSOs)</li>
+<li>Deploying a handful of custom (Flint) attributes</li>
+</ul></li>
+<li>Rundeck
+
+<ul>
+<li>Arbitrary job runner (web interface, execution history, etc)</li>
+<li>Currently running shell scripts and Ansible playbooks</li>
+<li>Part of a greater deployment pipeline involving</li>
+<li>Gitlab (code repository), Gitlab CI (builds and integration testing), Slack (result output)</li>
+<li>Ansible</li>
+<li>Dynamic inventory, based on our single-point-of-truth (Device42)</li>
+<li>Can be run from Rundeck or the CLI, results go to Slack</li>
+<li>Created a system baseline for Linux, installs/conﬁgures:
+
+<ul>
+<li>Spacewalk client, Authentication (Winbind, SSSD), Barracuda backup agent, Collectd (for visualization with Grafana), Duo client, IPtables, Latest packages (dev, test, production, etc), Ksplice (kernel- and user-land online patching), Logwatch, eaningful /etc/motd (contact, service level, etc), Networking (hostname, adapter, etc), NTPd client, OSSEC agent, Splunk agent, Standard packages, Sendmail (root@ is meaningful and off-box, etc), SSHd (conﬁgures banner message), Zabbix agent</li>
+</ul></li>
+<li>Proofpoint to Barracuda SPAM migration</li>
+<li>Created a Perl script to migrate white/blocklists
+
+<ul>
+<li>Leverages the Barracuda API (XMLRPC)</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h4>University of Michigan-Flint CSEP (Flint, MI; Sep 2012 – Dec 2016)</h4>
+
+<p><em>Lecturer (Adjunt Faculty)</em></p>
+
+<ul>
+<li>Taught the following courses, timing varies:
+
+<ul>
+<li>CSC 122 Intro to Programming (Python 3.x)</li>
+<li>CSC 175 Prob Solving &amp; Programming I (C++)</li>
+<li>CSC 275 Prob Solving &amp; Programming II (C++)</li>
+<li>CSC 377 Operating Systems (Theory)</li>
+</ul></li>
+</ul>
+
+<h4>University of Michigan-Flint ITS (Flint, MI; Aug 2008 – Feb 2014)</h4>
+
+<p><em>Data and Information Management (UNIX Systems Administrator, full-time staff)</em></p>
+
+<ul>
+<li>Administer numerous UNIX servers running the Solaris operating system</li>
+<li>Administer Sun StorageTek ﬁber channel storage arrays</li>
+<li>Administer the campus ERP (Ellucian Banner)</li>
+<li>Administer the campus E-commerce software platform (Touchnet)</li>
+<li>Assist in the administration of Oracle databases</li>
+<li>Assist in the administration of Oracle Application Server and Weblogic</li>
+<li>Wrote numerous custom programs in Oracle PL/SQL</li>
+<li>Administer the source control repository (CVS)</li>
+<li>Wrote a custom frontend in PHP to support CVS (replaced GForge)</li>
+<li>Administer the network monitor (Zabbix)</li>
+<li>Extend Zabbix to support in-house VDI (dashboarding, utilization)</li>
+<li>Implement and administer the campus reporting system (Webfocus)</li>
+<li>Determine equipment and software lifecycles and budget forecasting</li>
+<li>Work closely with other functional units on campus:
+
+<ul>
+<li>Registrar, Financial Aid, Cashier, Academic Advising, Reporting</li>
+</ul></li>
+</ul>
+
+<h4>University of Michigan-Flint ITS (Flint, MI; Jun 2006 – Jul 2008)</h4>
+
+<p><em>Data and Information Management (Business System Analyst, full-time staff)</em></p>
+
+<ul>
+<li>Developed and maintain numerous custom software (primarily PL/SQL)</li>
+<li>Developed numerous Oracle SQL queries, PL/SQL programs, Bash and Perl scripts</li>
+<li>Solely responsible for creating a web application for the Oﬃce of Financial Aid
+
+<ul>
+<li>Enables complete administration of the scholarship application process</li>
+</ul></li>
+<li>Created ﬁlter program which converted ASCII transcripts into PDF</li>
+</ul>
+
+<h4>University of Michigan-Flint ITS (Flint, MI; Sep 2005 – May 2006)</h4>
+
+<p><em>Data and Information Management (Student Worker)</em></p>
+
+<ul>
+<li>Wrote custom tools to handle the backup of the Solaris servers</li>
+<li>Wrote XML-RPC server in Perl which runs on the Windows platform and accepts remote requests for ﬁlesystem level access (creation of home directories, permission assignment); this daemon allows remote access to a Windows machine from any other (potentially incompatible) networked environment, such as UNIX</li>
+<li>Wrote custom Perl scripts for verifying the consistency of the campus Active Directory database and its accompanying user environment (account status, home directories, permissions, etc)</li>
+<li>Wrote custom Perl scripts for in-house use in determining scholarship eligibility; involves database connectivity and heavy use of regular expressions</li>
+</ul>
+
+<h4>University of Michigan-Flint ITS (Flint, MI; Jan 2005 – Aug 2005)</h4>
+
+<p><em>Helpdesk (Student Worker)</em></p>
+
+<ul>
+<li>Answer phone calls and troubleshoot various computing problems for the entire campus</li>
+<li>Answer email on the HelpDesk technical support mailing list</li>
+<li>Create and maintin numerous QuickNote guides</li>
+</ul>
+
+<h4>Orange351 (St Louis, MO; 1999 - 2003)</h4>
+
+<p><em>(Founding Partner) Systems Administrator / Web Developer</em></p>
+
+<ul>
+<li>Implemented numerous client and server-side programs in a variety of programming languages, including PHP, Perl, JavaScript</li>
+<li>Wrote a modular web site search engine</li>
+<li>Created web pages using PHP, HTML, CSS, and JavaScript</li>
+<li>Designed and implemented a real-time web-based image manipulation suite, primarily in Perl</li>
+<li>Created a web-based client support area from scratch in PHP, which facilitated secure communications between the parties</li>
+<li>Designed a web-based billing application using PHP and a MySQL database which the company used for internal bookkeeping</li>
+<li>Designed authentication mechanism which allowed clients to view only pertinent content</li>
+</ul>
+
+<h4>Electrografix New Media (St Louis, MO; 1996 - 1999)</h4>
+
+<p><em>(Founding Partner) Systems Administrator / Computer Programmer</em></p>
+
+<ul>
+<li>Architected, conﬁgured, and administered the local area network for this software company:
+
+<ul>
+<li>Consisted of approximately 20 workstations (Windows, Linux, and FreeBSD) and 10 servers (Windows NT, FreeBSD, Linux, and Sun Solaris)</li>
+</ul></li>
+<li>Installed and conﬁgured the Cisco router</li>
+<li>Conﬁgured and designed the ﬁrewall, which utilized FreeBSDs packet ﬁltering capability</li>
+<li>Performed automated backups of all servers using custom shell scripts (mainly cron and tar)</li>
+<li>Administered all of the servers, which included tasks such as operating system installation and conﬁguration, patching, server software installation and upgrading</li>
+<li>Designed a PHP application which allowed the non-technical staﬀ members to use the company database without having to learn SQL</li>
+<li>Designed a custom publishing system for the online magazine which the company produced</li>
+</ul>
+
+<hr />
+
+<h3>Education</h3>
+
+<ul>
+<li><em>Master of Science in Computer Science</em>
+
+<ul>
+<li>University of Michigan-Flint (Flint, MI; 2009 - 2012)</li>
+<li>Cumulative GPA 8.2 (of 9)</li>
+</ul></li>
+<li><em>Bachelor of Mathematics in Computer Science</em> (Honors)
+
+<ul>
+<li>University of Michigan-Flint (Flint, MI; 2003 - 2008)</li>
+<li>Cumulative GPA 3.69 (of 4); Dean’s list numerous semesters</li>
+</ul></li>
+<li><em>Bachelor of Science in Computer Science</em> (Honors)
+
+<ul>
+<li>University of Michigan-Flint (Flint, MI; 2003 - 2008)</li>
+<li>Cumulative GPA 3.69 (of 4); Dean’s list numerous semesters</li>
+</ul></li>
+<li><em>University of Missouri-Saint Louis</em> (St Louis, MO; 1996 - 1997)
+
+<ul>
+<li>Undecided major; took general education courses</li>
+</ul></li>
+<li><em>St Charles County Community College</em> (St Charles, MO; 1994 - 1996)
+
+<ul>
+<li>Undecided major; took general education courses</li>
+</ul></li>
+<li><em>Francis Howell North High School</em> (St Charles, MO; 1990 - 1994)
+
+<ul>
+<li>Completed high school; cumulative GPA of 3.97 (of 4) Top 5% of graduating class</li>
+</ul></li>
+</ul>
+
+<h4>Relevant Courses</h4>
+
+<p>Beginning, Intermediate, and Advanced C++; Digital Logic; Assembly Language; Java Programming; Computer Networking I &amp; II; Computer Architecture; Theory of Computation; Software Engineering I; UNIX System Administration; Perl Programming; Advanced Operating Systems</p>
+
+<h4>Activities</h4>
+
+<ul>
+<li>Previously held the position of Vice-Chair of the University chapter of the Association of (ACM). Participated in the ACM Regional Programming Competitions in 2004 and 2005. Helped organize and work the Annual High School Programming Competition hosted by our chapter in 2003, 2004, and 2005. Volunteer System Administrator of the club UNIX server.</li>
+<li>Assisted Dr. Turner (Computer Science Professor) with a research paper by writing numerous Perl scripts which simulated proprietary network routing protocols. Demonstrated some of these results at Meeting of the Minds 2006.</li>
+<li>Previous member of the Student Union of Mathematics (SUM). Participated in the Lower Michigan Mathematics Competition in 2005.</li>
+<li>Inactive member of the Chess Club. Held the highest rating before becoming inactive due to lack of time. The club has been abandoned.</li>
+</ul>
+
+<hr />
+
+<h3>References</h3>
+
+<ul>
+<li>Please let me know before contacting them, so that I may provide a courtesy reminder:
+
+<ul>
+<li>Harvey Sherman, supervisor, <a href="harveys@umich.edu">harveys@umich.edu</a></li>
+<li>Dr Steven Turner, professor, <a href="swturner@umich.edu">swturner@umich.edu</a></li>
+<li>Adam Robinson, coworker, <a href="adarobin@umich.edu">adarobin@umich.edu</a></li>
+<li>Phil Erlenbeck, coworker, <a href="perlenbe@umich.edu">perlenbe@umich.edu</a></li>
+<li>Rod Mach, supervisor, <a href="rod@totalcae.com">rod@totalcae.com</a></li>
+<li>Wayne Nichols, coworker, <a href="wayne@totalcae.com">wayne@totalcae.com</a></li>
+</ul></li>
+</ul>
+
+<hr />
+
+<h3 id="footer">Footer</h3>
+
+<p>Mark Mercado &#8212; <a href="mamercad@gmail.com">mamercad@gmail.com</a> &#8212; +1-810-223-3658</p>
+
+<hr />
+
+    </div>
+</body>
+</html>
