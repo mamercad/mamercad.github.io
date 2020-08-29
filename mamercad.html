@@ -36,14 +36,14 @@ I love designing greenfield environments, but don’t mind unwinding and refacto
 I approach the management of systems from the perspective of a developer.
 I thoroughly enjoy implementing automation and monitoring.
 I have plenty of real-world experience in datacenter and cloud operations, virtualization, operating systems, databases, development and system integration.
-I learn quickly and have very strong analytics problem-solving skills.
+I learn quickly and have very strong analytical problem-solving skills.
 I can work on a team but am most productive when given tough problems to solve and the creative freedom to implement them.
 I firmly believe in open-source software and giving back.
 I am always looking out for creative challenges and complicated systems problems to tackle.
 As it pertains to education, I plan on pursuing a PhD when my youngest child enters school (a few years out).
 I have set up and maintained, typically from scratch, numerous mission critical multi-tier systems.
 In most of my positions, I typically maintain a large role, generally working from the metal all the way to application.
-As of late, I spend most of mime working towards “infrastructure from code” and automation in general.
+As of late, I spend most of my working towards &#8220;infrastructure from code&#8221; and automation in general.
 I want to continue evolving as a systems engineer and a developer.
 I am comfortable and experienced in developing the full stack.
 In order to be happy, I need an unrestricted Macbook, the freedom to use (and to contribute back) to the open source community, and the ability to work remotely from time to time.</p>
@@ -62,12 +62,12 @@ I&#8217;m comfortable with traditional systems (physical and virtual) as well as
 <li><dl>
 <dt>Systems Monitoring</dt>
 <dd>When building systems, I build in monitoring as a fundamental feature, not an afterthought.
-I thorougly enjoy implementing meaningful and actionable monitoring.
+I thoroughly enjoy implementing meaningful and actionable monitoring.
 I&#8217;m comfortable with traditional monitoring (Nagios, Icinga and Zabbix) as well as modern implementations (Sensu, Prometheus and Grafana).</dd>
 </dl></li>
 <li><dl>
 <dt>Systems Automation</dt>
-<dd>I firmly believe in building systems with the use of automations tooling frameworks, not manual steps.
+<dd>I firmly believe in building systems with the use of automation tooling frameworks, not manual steps.
 I&#8217;m comfortable with traditional configuration management (Chef, Puppet, Salt, Ansible) and modern container-based solutions (Terraform, Docker, Kubernetes and Helm).</dd>
 </dl></li>
 </ul>
@@ -98,141 +98,6 @@ I&#8217;m comfortable with traditional configuration management (Chef, Puppet, S
 
 <hr />
 
-<h3>Projects (Recent)</h3>
-
-<ul>
-<li>Ansible AWX
-
-<ul>
-<li>Wrote the Terraform/grunt deployment in AWS (Docker-based)</li>
-<li>Wrote the Puppet code to deploy the service account</li>
-</ul></li>
-<li>Cloud DNS
-
-<ul>
-<li>DNS as code (by way of OctoDNS)</li>
-<li>PowerDNS as the authoritative source</li>
-<li>Consul as the recursive DNS servers</li>
-</ul></li>
-<li>Device42
-
-<ul>
-<li>Regular maintenance and upgrades</li>
-<li>Configured for warm-failover</li>
-<li>Recently moved this to AWS (wrote Terraform/grunt for this deployment)</li>
-</ul></li>
-<li>Sitespeed.io
-
-<ul>
-<li>Multi-site deployment</li>
-<li>Performs automated web performance benchmarking</li>
-<li>Docker-based</li>
-</ul></li>
-<li>Speedtest
-
-<ul>
-<li>Multi-site deployment</li>
-<li>Endpoint for client network bandwidth and latency benchmarking</li>
-<li>Docker-based</li>
-</ul></li>
-<li>Central Rsyslog
-
-<ul>
-<li>Tuned for high performance</li>
-<li>Packaged Prometheus exporter for metrics</li>
-</ul></li>
-<li>Akamai EAA
-
-<ul>
-<li>Multi-site deployment (on-premise and public cloud)</li>
-</ul></li>
-<li>The Foreman
-
-<ul>
-<li>Multi-site deployment</li>
-<li>Proxies in each on premise datacenter (doing DHCP with failover)</li>
-</ul></li>
-<li>Stratoscale
-
-<ul>
-<li>Multi-site deployment (three on-premise clusters)</li>
-<li>Reverse-engineered the bare-metal installation procedure (for Foreman)</li>
-</ul></li>
-</ul>
-
-<h3>Projects (Less Recent)</h3>
-
-<ul>
-<li>Artifactory
-
-<ul>
-<li>Implementing the infrastructure (AWS EKS) with Terragrunt and Terraform</li>
-<li>Implementing the application in Helm, Flux and Istio</li>
-</ul></li>
-<li>Image Pipeline
-
-<ul>
-<li>Jenkins pipeline which builds our cloud image, notifications go to Slack</li>
-<li>Uses Packer to Kickstart an ISO, followed by shell and Puppet provisioning</li>
-<li>Last step is an automatic disk image upload and import to AWS (AMI)</li>
-</ul></li>
-<li>OpenStack
-
-<ul>
-<li>Implemented MAAS to initially bare-metal provision the nodes (from the BMC)</li>
-<li>Small PoC environment consisting of Horizon, Neutron, Magnum, Keystone, Cinder, Glance</li>
-<li>Nova and Zun used to benchmark our key applications and test as a Terraform endpoint</li>
-</ul></li>
-<li>Atlassian Upgrade
-
-<ul>
-<li>Hardware upgrade, software lift-and-shift</li>
-<li>Added Consul and Prometheus functionality along the way (node and Apache exporters)</li>
-</ul></li>
-<li>Device42 Upgrade
-
-<ul>
-<li>Software lift-and-shift (two major versions, 13.x to 15.x)</li>
-<li>Implemented warm-standby to eliminate single-instance SPoF (automatic daily refresh)</li>
-</ul></li>
-<li>Consul Project
-
-<ul>
-<li>Deployed Consul clusters to all of our DCs</li>
-<li>Using Consul for service discovery</li>
-<li>Implemented “DNS forwarding” (serving up the “consul” TLD)</li>
-<li>Turning all Consul servers into DNS slaves (they’re acting as site name servers)</li>
-</ul></li>
-<li>SumoLogic Project
-
-<ul>
-<li>Wrote the Puppet class which leverages the upstream Docker image</li>
-<li>Integrated with Sensu for health checks and Consul for service discovery</li>
-<li>Easy enough for our customers to extend the functionality (additional collectors)</li>
-<li>Configured all of our clients to send syslog to SumoLogic</li>
-</ul></li>
-<li>Puppet in AWS (ASG)
-
-<ul>
-<li>Wrote the Terraform/Terragrunt manifest</li>
-<li>Handles remote state by way of S3 and DynamoDB</li>
-<li>The ASG is fronted by ELB (uses crypto from ACM)</li>
-<li>Least*privilege IAM policies are used</li>
-<li>The Puppet servers leverage EFS for shared storage</li>
-<li>Simple CloudWatch policies control the ASG (currently CPU utilization)</li>
-<li>VPCs and SGs are used for network isolation</li>
-<li>The Puppet servers used cloud-init for last-minute configuration</li>
-</ul></li>
-<li>Air-gapped Root CA
-
-<ul>
-<li>Created a process to automate the creation of our root CA (all but crypto)</li>
-<li>Leverages Vagrant, Packer and Linux Live Kit (&#8220;vagrant up&#8221; to USB live distro)</li>
-</ul></li>
-</ul>
-
-<hr />
-
 <h3 id="technical">Technical</h3>
 
 <ul>
@@ -246,7 +111,7 @@ I&#8217;m comfortable with traditional configuration management (Chef, Puppet, S
 <li>Highly proficient in traditional datacenter administration (racking, stacking, cabling)</li>
 <li>Highly proficient in the administration of virtualization environments (VMware, Qemu/KVM and Xen)</li>
 <li>Highly proficient in network monitoring (Zabbix, Nagios, Icinga, Sensu, Prometheus, Grafana)</li>
-<li>Highly provicient in configuration management (Salt, Ansible, Chef, Puppet and Spacewalk)</li>
+<li>Highly proficient in configuration management (Salt, Ansible, Chef, Puppet and Spacewalk)</li>
 <li>Comfortable working with recent versions of Microsoft Windows (2003, 2008, 2012, 2016 7, 8, 10)
 
 <ul>
@@ -280,7 +145,7 @@ I&#8217;m comfortable with traditional configuration management (Chef, Puppet, S
 
 <h3 id="experience">Experience</h3>
 
-<h4>Barracuda Networks (Ann Arbor, MI; Jan 2018 - present)</h4>
+<h4>Barracuda Networks (Ann Arbor, MI; Jan 2018 - Sep 2020)</h4>
 
 <p><em>Lead Site Reliability Engineer, Cloud/Infrastructure Operations</em></p>
 
@@ -292,10 +157,9 @@ Our infrastructure consists of, predominantly, thousands of Linux machines and l
 In the last year, I&#8217;ve produced more than 4,300 commits to our codebase and resolved more than 400 bugs.</p>
 
 <ul>
-<li>Currently focusing on new software deployments based on Kubernetes, Flux and Istio</li>
-<li>Implementing Stratoscale (AWS-like private cloud) for production</li>
+<li>Implemented Stratoscale (AWS-like private cloud) for production</li>
 <li>Implemented Ubuntu MAAS for bare-metal provisioning</li>
-<li>Implemeting the Foreman for datacenter management
+<li>Implemented the Foreman for datacenter management
 
 <ul>
 <li>Physical and virtual provisioning (supporting PXE and HTTP installations)</li>
@@ -338,6 +202,139 @@ In the last year, I&#8217;ve produced more than 4,300 commits to our codebase an
 <li>Created numerous packages (typically by way of Jenkins pipelines and fpm)</li>
 <li>Wrote numerous runbooks for the Operations Engineering team (first line support)</li>
 <li>Created our cloud images and our Vagrant boxes (both built with Packer)</li>
+</ul>
+
+<p>Projects:</p>
+
+<ul>
+<li>Ansible AWX
+
+<ul>
+<li>Wrote the initial Terraform/grunt deployment in AWS (Docker-based)</li>
+<li>Wrote the final production version (Kubernetes-based)</li>
+<li>Built custom AWX images (baked in our Python virtual environment)</li>
+</ul></li>
+<li>Cloud DNS
+
+<ul>
+<li>DNS as code (by way of OctoDNS)</li>
+<li>PowerDNS as the authoritative source</li>
+<li>Consul as the recursive DNS servers</li>
+<li>Jenkins handles the automation</li>
+</ul></li>
+<li>Device42
+
+<ul>
+<li>Regular maintenance and upgrades</li>
+<li>Configured for warm-failover</li>
+<li>Recently moved this to AWS (wrote Terraform/grunt for this deployment)</li>
+</ul></li>
+<li>Sitespeed.io
+
+<ul>
+<li>Multi-site deployment</li>
+<li>Performs automated web performance benchmarking</li>
+<li>Docker-based</li>
+</ul></li>
+<li>Speedtest
+
+<ul>
+<li>Multi-site deployment</li>
+<li>Endpoint for client network bandwidth and latency benchmarking</li>
+<li>Docker-based</li>
+</ul></li>
+<li>Central Rsyslog
+
+<ul>
+<li>Tuned for high performance</li>
+<li>Packaged Prometheus exporter for metrics</li>
+</ul></li>
+<li>Akamai EAA
+
+<ul>
+<li>Multi-site deployment (on-premise and public cloud)</li>
+<li>Wrote the Terraform to deploy proxies in AWS (CloudFormation templates)</li>
+</ul></li>
+<li>The Foreman
+
+<ul>
+<li>Multi-site deployment</li>
+<li>Proxies in each on premise datacenter (doing DHCP with failover)</li>
+<li>Dynamic DNS by way of PowerDNS&#8217;s API</li>
+</ul></li>
+<li>Stratoscale
+
+<ul>
+<li>Multi-site deployment (three on-premise clusters)</li>
+<li>Reverse-engineered the bare-metal installation procedure (for Foreman)</li>
+</ul></li>
+<li>Artifactory
+
+<ul>
+<li>Implementing the infrastructure (AWS EKS) with Terragrunt and Terraform</li>
+<li>Implementing the application in Helm, Flux and Istio</li>
+</ul></li>
+<li>Image Pipeline
+
+<ul>
+<li>Jenkins pipeline which builds our cloud image, notifications go to Slack</li>
+<li>Uses Packer to Kickstart an ISO, followed by shell and Puppet provisioning</li>
+<li>Last step is an automatic disk image upload and import to AWS (AMI)</li>
+</ul></li>
+<li>OpenStack
+
+<ul>
+<li>Implemented MAAS to initially bare-metal provision the nodes (from the BMC)</li>
+<li>Small PoC environment consisting of Horizon, Neutron, Magnum, Keystone, Cinder, Glance</li>
+<li>Nova and Zun used to benchmark our key applications and test as a Terraform endpoint</li>
+</ul></li>
+<li>Atlassian Upgrade
+
+<ul>
+<li>Hardware upgrade, software lift-and-shift</li>
+<li>Added Consul and Prometheus functionality along the way (node and Apache exporters)</li>
+</ul></li>
+<li>Device42 Upgrade
+
+<ul>
+<li>Software lift-and-shift (three major versions, 13.x to 15.x to 16.x)</li>
+<li>Moved from on-prem to AWS (multi-region)</li>
+<li>Implemented warm-standby to eliminate single-instance SPoF (automatic daily refresh)</li>
+</ul></li>
+<li>Consul Project
+
+<ul>
+<li>Deployed Consul clusters to all of our DCs</li>
+<li>Using Consul for service discovery</li>
+<li>Implemented “DNS forwarding” (serving up the “consul” TLD)</li>
+<li>Turning all Consul servers into DNS slaves (they’re acting as site name servers)</li>
+</ul></li>
+<li>SumoLogic Project
+
+<ul>
+<li>Wrote the Puppet class which leverages the upstream Docker image</li>
+<li>Integrated with Sensu for health checks and Consul for service discovery</li>
+<li>Easy enough for our customers to extend the functionality (additional collectors)</li>
+<li>Configured all of our clients to send syslog to SumoLogic</li>
+</ul></li>
+<li>Puppet in AWS (ASG)
+
+<ul>
+<li>Wrote the Terraform/Terragrunt manifest</li>
+<li>Handles remote state by way of S3 and DynamoDB</li>
+<li>The ASG is fronted by ELB (uses crypto from ACM)</li>
+<li>Least-privilege IAM policies are used</li>
+<li>The Puppet servers leverage EFS for shared storage</li>
+<li>Simple CloudWatch policies control the ASG (currently CPU utilization)</li>
+<li>VPCs and SGs are used for network isolation</li>
+<li>The Puppet servers used cloud-init for last-minute configuration</li>
+</ul></li>
+<li>Air-gapped Root CA
+
+<ul>
+<li>Created a process to automate the creation of our root CA (all but crypto)</li>
+<li>Leverages Vagrant, Packer and Linux Live Kit (&#8220;vagrant up&#8221; to USB live distro)</li>
+</ul></li>
 </ul>
 
 <h4>TotalCAE (Ann Arbor, MI; Nov 2016 - Jan 2018)</h4>
