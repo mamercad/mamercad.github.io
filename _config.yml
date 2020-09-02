@@ -29,6 +29,8 @@ url: "https://mamercad.github.io" # the base hostname & protocol for your site, 
 twitter_username: mamercad
 github_username:  mamercad
 
+show_excerpts: true
+
 # Build settings
 theme: minima
 plugins:
