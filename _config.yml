@@ -30,7 +30,7 @@ twitter_username: mamercad
 github_username:  mamercad
 
 # Build settings
-remote_theme: andrewhwanpark/dark-poole
+theme: minimal
 plugins:
   - jekyll-feed
 
