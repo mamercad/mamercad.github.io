@@ -5,15 +5,15 @@ date:   2020-09-02 05:13:58 -0400
 categories: ssh lastpass
 ---
 
-I'm seemingly always finding myself working towards minimalism when it comes to tooling.
+I'm regularly finding myself working towards minimalism, in particular, when it comes to tooling.
 It's very normal to have many hundreds of secrets to use and manage on a regular basis.
 Arguably, the best tool we have for the job right now are commonly referred to as "password managers".
-There are lots of them out there: LastPass, 1Password, `pass`, and so on.
-I happen to use LastPass right now.
+There are lots of them out there: [LastPass](https://mamercad.github.io), [1Password](https://1password.com), [pass](https://www.passwordstore.org), and more.
+Right now, for better or worse, I use LastPass.
 
-Should you find yourself in tech, you can probably triple the number of secrets you'll need to manage.
-And no, I'm not saying that a person should store their "work secrets" in their personal password manager -- unless the secret in question is personal, e.g., your work SSH key pair.
-An example of what *not* to store in your personal vault, as far as work is concerned, would be a shared `root` password.
+Should you find yourself in tech, you can probably triple the number of secrets you'll need to regularly manage.
+And no, I'm not saying that a person should store their _work_ secrets in their _personal_ password manager -- unless the secret in question is in fact personal, e.g., your work SSH key pair.
+An example of what *not* to store in your personal vault, as far as work is concerned, would be a shared `root` password (those should only live in whatever vault your workplace provides).
 
 Since I'm already using a password manager for secrets, it seems natural to store my SSH key pair there as well.
 This probably isn't a new idea, but, I'll show you how I happen to do it so that it's a bit less painful.
