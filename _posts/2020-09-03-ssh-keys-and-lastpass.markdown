@@ -47,7 +47,7 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-This gives us our new key pair.
+This gives us our new key pair:
 
 ```bash
 ❯ file demo*
@@ -86,3 +86,4 @@ hunter2
 ```
 
 There are other fields in available, and I'll leave this as an exercise for the reader to hack around with.
+Good luck, maybe this'll help you have a few less SSH keys to manage, or, keep you from losing an important one!
