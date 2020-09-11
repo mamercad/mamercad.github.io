@@ -120,7 +120,7 @@ Enter New Password (Blank for no password):
   [✓] Password Removed
 ```
 
-Once you're done with this, if you're going to actually use this virtual machine, you'll probably want it to start automatically if and when the hypervisor reboots (you patch and reboot fairly regularly, right?) -- in this example, `sudo virsh autostart --pihole1` should do the trick.
+Once you're done with this, if you're going to actually use this virtual machine, you'll probably want it to start automatically if and when the hypervisor reboots (you patch and reboot fairly regularly, right?) -- in this example, `sudo virsh --autostart pihole1` should do the trick.
 
 Other than maybe a little bit of additional configuration, you're probably ready to go. Naturally, do a few test `dig`s against it to make sure it resolves things correctly before cutting over your whole network to it:
 
