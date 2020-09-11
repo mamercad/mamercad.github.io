@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Pi-hole on KVM/QEMU"
-date:   2020-09-02 05:13:58 -0400
+date:   2020-09-11 06:38:52 -0400
 categories: pi-hole pihole kvm qemu
 ---
 
