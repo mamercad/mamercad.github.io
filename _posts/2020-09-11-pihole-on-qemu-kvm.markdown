@@ -114,7 +114,7 @@ mark@pihole1:~$
 It'd be nice if "they" provided some sort of hash of `basic-install.sh`, but, it is what it is. Ironically, all it'd take is a DNS compromise and I'd be running some random script as root. Should probably file an issue to see if they can build this into their release process -- [here's](https://github.com/pi-hole/pi-hole) the repository. I don't expose my Pi-hole to the internet, so, I typically turn off the "admin" password like this:
 
 ```bash
-mark@pihole1:~$ pihole -a -p
+mark@pihole1:~$ sudo pihole -a -p
 [sudo] password for mark:
 Enter New Password (Blank for no password):
   [✓] Password Removed
