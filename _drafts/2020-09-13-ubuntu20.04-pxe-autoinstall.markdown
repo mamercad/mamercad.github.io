@@ -1,0 +1,7 @@
+---
+layout: post
+title:  "Ubuntu 20.04 PXE Autoinstall"
+date:   2020-09-13 08:13:25 -0400
+categories: ubuntu focal fossa 20.04 pxe autoinstall
+---
+
