@@ -21,7 +21,7 @@
 title: Mark Mercado's Blog
 email: mamercad@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Mark Mercado currently works as a systems engineer for a public cloud company.
+  Mark Mercado currently works as a systems engineer for [DigitalOcean](https://www.digitalocean.com/).
   His focus is cloud (private and public) infrastructure.
   He has degrees in computer science and mathematics.
 baseurl: "/" # the subpath of your site, e.g. /blog
