@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "GitHub deploy keys"
+title:  "GitHub Deploy Keys"
 date:   2020-09-20 05:55:13 -0400
-categories: github deploy keys ssh
+categories: github deploy deployment keys ssh
 ---
 
 Just dropping a quick entry about GitHub and [deploy keys](https://docs.github.com/en/developers/overview/managing-deploy-keys). In particular, working around the "you can't reuse them" limitation:
