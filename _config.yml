@@ -32,7 +32,8 @@ github_username:  mamercad
 show_excerpts: true
 
 # Build settings
-theme: minima
+# theme: minima
+theme: hacker
 plugins:
   - jekyll-feed
 
