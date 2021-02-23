@@ -341,4 +341,17 @@ postgres=# select pid,usename,application_name,client_addr,state,sync_state from
 (2 rows)
 ```
 
+Lastly, if you'd like to promote one of the followers, you could do:
+
+```bash
+postgres@db3:~$ pg_ctlcluster 10 main promote
+
+postgres@db3:~$ pg_lsclusters
+Ver Cluster Port Status Owner    Data directory              Log file
+10  main    5432 online postgres /var/lib/postgresql/10/main /var/log/postgresql/postgresql-10-main.log
+```
+
+Notice that it no long says `recovery` in the status column.
+Your primary and this follower have now effectively diverged.
+
 Hopefully, in the next article, I'll show you an easy way of doing failover/back.
