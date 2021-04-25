@@ -17,8 +17,8 @@ Setting up Concourse locally is relatively painless, [they provide a compose fil
     image: registry:2
     ports: ["5000:5000"]
     volumes:
-      - server.crt:/server.crt
-      - server.key:/server.key
+      - ${PWD}/server.crt:/server.crt
+      - ${PWD}/server.key:/server.key
     environment:
       REGISTRY_HTTP_ADDR: 0.0.0.0:5000
       REGISTRY_HTTP_TLS_CERTIFICATE: server.crt
