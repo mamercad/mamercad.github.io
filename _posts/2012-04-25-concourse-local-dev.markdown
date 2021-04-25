@@ -25,6 +25,14 @@ Setting up Concourse locally is relatively painless, [they provide a compose fil
       REGISTRY_HTTP_TLS_KEY: server.key
 ```
 
+Here's a one-liner for generating "snake oil" crypto:
+
+```bash
+❯ openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 \
+    -subj "/C=${COUNTRY}/ST=${STATE}/L=${CITY}/O=${ORG})/CN=${FQDN}" \
+    -keyout server.key -out server.crt
+```
+
 So, when it comes to tagging your images, they'd look something like this `registry:5000/my-image-name:0.0.1`. Note that `registry` lines up with the service name (the existing Concourse services in the "pod" can resolve this name), the `5000` is obviously the chosen port, `my-image-name` is an arbitrary image name, and `0.0.1` is an arbitrary tag. Now, when you `docker push ...` you'll be pushing to the Docker registry running locally.
 
 Closing the loop, we'll need to also pull from our local Docker registry, here's an example of how our `resource_type` would look:
