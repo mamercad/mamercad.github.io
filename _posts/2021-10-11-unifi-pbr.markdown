@@ -1,0 +1,212 @@
+---
+layout: post
+title:  "UniFi policy-based routing (PBR)"
+date:   2021-10-11 04:02:53 -0400
+categories: unifi pbr policy-based routing homelab ubiquiti
+---
+
+My home is powered by [Ubiquiti's UniFi](https://ui.com/) product line.
+I've been using the kit for, oh, probably 3 or 4 years now, and it's been fine (there's much to be said for things that just work).
+I don't jump on the latest-and-greatest firmware; typically, I'm probably months behind what's current.
+At the time of writing, I'm at `6.0.45` and the blurb says that `6.4.54` is out.
+
+Here's a list of what I'm currently running:
+
+* CloudKey Gen1 (1)
+* USG-3P (1)
+* US-8-60W (2)
+* US-8 (2)
+* UAP-AC-LR (3)
+* UAP-AC-Pro (1)
+
+My configuration is pretty boring, I currently only have two VLANs, the native one and one for the open guest network.
+I'll get around to adding more some day (I'm looking at you, IoT).
+As far as WAN goes, I have two ISPs, [Xfinity](https://xfinity.com) Cable and [AT&T](https://att.com) ADSL.
+Unfortunately, I don't have fiber options right now.
+My partner and I both work in tech, and, our kids are on the internet as well.
+So, having good uptime is nice.
+A few years ago, my Xfinity wasn't as reliable as it is today (turns out that squirrels are a thing), which is when I added the AT&T service.
+Once a new cable line was run those problems went away.
+
+As far as utilization goes, up until a few days ago, I was running the DSL as failover-only.
+So, we'd automatically failover ot AT&T when Xfinity dropped, and, failback when it came back.
+This worked out just fine, and the option to set this up is available in the UI.
+The other option is weighted load-balancing, which I don't want -- I don't want my connections alternating, and, the DSL that I have is much slower than my cable.
+
+Unfortunately, doing policy-based routing isn't available in the UI.
+Since I'm paying for DSL, I wanted to get a bit more utilization out of it, but, on my terms.
+There are lots of ways that you can go with this, but what I've done thus far is route the guest VLAN through it (and, I have a static route set up for something that I'm not going to go into `:smile:`).
+Static routes can be configured in the UI, but, IPs aren't always stable; and, again, I don't want my connections flipping between my providers like this generally.
+
+So, to the UniFI CLI we go ([EdgeOS is based on Vyatta](https://community.ui.com/questions/Relation-between-EdgeOS-and-Vyatta-VyOS/16e71fa1-cc29-4e89-a6e2-268264be25c4)).
+
+On the USG, you can show your interfaces like this:
+
+```bash
+mamercad@gateway:~$ show interfaces
+Codes: S - State, L - Link, u - Up, D - Down, A - Admin Down
+Interface    IP Address                        S/L  Description
+---------    ----------                        ---  -----------
+eth0         68.46.132.66/23                   u/u  WAN
+eth1         192.168.1.1/24                    u/u  LAN
+eth1.15      192.168.15.1/24                   u/u
+eth2         162.230.47.152/23                 u/u  WAN2
+lo           127.0.0.1/8                       u/u
+             ::1/128
+```
+
+For me, `WAN` is Xfinity and `WAN2` is AT&T.
+
+You can show your failover configuration like this:
+
+```bash
+mamercad@gateway:~$ show load-balance status
+Group wan2_failover
+  interface   : eth0
+  carrier     : up
+  status      : failover
+  gateway     : 68.46.132.1
+  route table : 201
+  weight      : 0%
+  flows
+      WAN Out : 0
+      WAN In  : 21726
+    Local Out : 0
+
+  interface   : eth2
+  carrier     : up
+  status      : active
+  gateway     : 162.230.46.1
+  route table : 202
+  weight      : 100%
+  flows
+      WAN Out : 640
+      WAN In  : 0
+    Local Out : 1122
+
+Group wan_failover
+  interface   : eth0
+  carrier     : up
+  status      : active
+  gateway     : 68.46.132.1
+  route table : 203
+  weight      : 100%
+  flows
+      WAN Out : 546000
+      WAN In  : 0
+    Local Out : 0
+
+  interface   : eth2
+  carrier     : up
+  status      : failover
+  gateway     : 162.230.46.1
+  route table : 204
+  weight      : 0%
+  flows
+      WAN Out : 3
+      WAN In  : 0
+    Local Out : 0
+```
+
+The configuration that I ended up going with looks like this:
+
+```bash
+configure
+set load-balance group wan2_failover interface eth0 failover-only
+set load-balance group wan2_failover interface eth2
+set firewall modify LOAD_BALANCE rule 2501 action modify
+set firewall modify LOAD_BALANCE rule 2501 modify lb-group wan2_failover
+set firewall modify LOAD_BALANCE rule 2501 source address 192.168.15.0/24
+commit ; exit
+```
+
+My guest VLAN is 15, and, the L3 for it is `192.168.15.0/24` (this shows up as `eth1.15` in `show interfaces`).
+As you can see, anything originating from this network will be shipped over WAN2 (AT&T).
+This configuration works just fine, but, if and when the USG restarts, it'll be lost.
+We need to get this onto the CloudKey, and for that, it'll take a custom [config.gateway.json](https://help.ui.com/hc/en-us/articles/215458888-UniFi-USG-Advanced-Configuration-Using-config-gateway-json).
+
+This part was relatively straightforward -- basically, I dumped and diffed.
+In `config.gateway.json`, you should only supply the differences (unless you're okay with not using the UI to manage the USG).
+As with anything, it's always a good idea to take a backup before making changes.
+On the USG, before doing anything, I did a `cp /config/config.boot{,.bak}`.
+You can dump your config like this `mca-ctrl -t dump-cfg >config.txt 2>&1`.
+Then, I ran the configuration stuff above, and then, diffed them to figure out how to craft `config.gateway.json`.
+
+In the end, what I ended up with is this:
+
+```json
+{
+  "firewall": {
+    "ip-src-route": "disable",
+    "ipv6-receive-redirects": "disable",
+    "ipv6-src-route": "disable",
+    "log-martians": "enable",
+    "modify": {
+      "LOAD_BALANCE": {
+        "rule": {
+          "2501": {
+            "action": "modify",
+            "modify": {
+              "lb-group": "wan2_failover"
+            },
+            "source": {
+              "address": "192.168.15.0/24"
+            }
+          }
+        }
+      }
+    },
+    "source-validation": "disable"
+  },
+  "interfaces": {
+    "ethernet": {
+      "eth0": {
+        "dhcp-options": {
+          "default-route": "update"
+        },
+        "duplex": "auto",
+        "speed": "auto"
+      },
+      "eth1": {
+        "duplex": "auto",
+        "speed": "auto"
+      },
+      "eth2": {
+        "dhcp-options": {
+          "default-route": "update"
+        },
+        "duplex": "auto",
+        "speed": "auto"
+      }
+    }
+  },
+  "load-balance": {
+    "group": {
+      "wan2_failover": {
+        "flush-on-active": "disable",
+        "interface": {
+          "eth0": {
+            "failover-only": "''"
+          },
+          "eth2": "''"
+        },
+        "lb-local": "enable",
+        "lb-local-metric-change": "enable"
+      },
+      "wan_failover": {
+        "flush-on-active": "disable",
+        "lb-local": "enable",
+        "lb-local-metric-change": "enable"
+      }
+    }
+  }
+}
+```
+
+After constructing this file, I dropped it onto my CloudKey.
+I only have a single site, and a Gen1 CloudKey, so, it lives at `/srv/unifi/data/sites/default/config.gateway.json`.
+A little while after, the USG rebooted to (re)provision.
+It only took me a few tries to get it right `:smile:`.
+I'll do more than primarily routing my guest network though it in time.
+Adding more VLANs should be as simple as adding `sources` to the `wan2_failover` configuration.
+Hope this helps the next person!
