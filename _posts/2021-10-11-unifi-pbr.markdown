@@ -207,6 +207,6 @@ After constructing this file, I dropped it onto my CloudKey.
 I only have a single site, and a Gen1 CloudKey, so, it lives at `/srv/unifi/data/sites/default/config.gateway.json`.
 A little while after, the USG rebooted to (re)provision.
 It only took me a few tries to get it right `:smile:`.
-I'll do more than primarily routing my guest network though it in time.
+I'll do more than primarily routing my guest network through it in time.
 Adding more VLANs should be as simple as adding `sources` to the `wan2_failover` configuration.
 Hope this helps the next person!
