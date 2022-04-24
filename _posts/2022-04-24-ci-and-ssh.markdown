@@ -1,0 +1,24 @@
+---
+layout: post
+title:  "CI and SSH (and passphrases)"
+date:   2022-04-24 10:16:21 -0400
+categories: ci ssh passphrases
+---
+
+Took me a while to figure out SSH keys (with passphrases) in CI.
+I do much of my work (in operations) with [Ansible](https://github.com/ansible/ansible).
+Typically, secrets in CI are handled with environment variables.
+Suppose you need to SSH from within CI to do some work; the following should do the trick (in a Linux or Linux-like runtime):
+
+```bash
+eval $(ssh-agent)
+install -b -m 600 /dev/null ssh.key
+echo "${SSH_PRIVATE_KEY}" >ssh.key
+echo "${SSH_PASSPHRASE}" \
+  | SSH_ASKPASS=cat setsid -c ssh-add ssh.key
+ssh-add -l
+```
+
+Hopefully your CI will redact the secrets.
+As you can see, you'll need `ssh-agent`, `install`, `cat`, `setsid`, and, `ssh-add`.
+As far as the secrets go, your private key should be stored in the environment as `SSH_PRIVATE_KEY` and the passphrase as `SSH_PASSPHRASE`.
