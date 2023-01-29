@@ -11,7 +11,7 @@ I haven't gone very deep on this, I'm just starting with [1Password](https://1pa
 The first step is to create the connect server; I'm guessing that this is basically an API gateway to your stuff in their cloud.
 
 ```shell
-❯ op connect server create Kubernetes --vaults Kubernetes --cache
+❯ op connect server create Kubernetes --vaults Kubernetes,Homelab --cache
 Set up a Connect server.
 UUID: REDACTED
 Credentials file: /path/to/where/you/ran/this/1password-credentials.json
@@ -28,7 +28,7 @@ REDACTED                      Kubernetes    ACTIVE
 The next step is to create an access token for Kubernetes, I'm intentially giving it a short expiration for this example.
 
 ```shell
-❯ export CONNECT_TOKEN="$(op connect token create Kubernetes --server Kubernetes --vaults Kubernetes,rw --expires-in=24h)"
+❯ export CONNECT_TOKEN="$(op connect token create Kubernetes --server Kubernetes --vault Kubernetes,rw --vault Homelab,r --expires-in=24h)"
 ```
 
 Next, set up the [Helm](https://helm.sh/) things:
