@@ -99,7 +99,7 @@ NAME    TYPE     DATA   AGE
 test1   Opaque   2      45s
 ```
 
-And to make sure it's working (recall the secret has two fields (above), `username` is `foo` and `password` is `bar`:
+And to make sure it's working (recall the secret above has two fields, `username` is `foo` and `password` is `bar`):
 
 ```shell
 ❯ kubectl -n 1password get secret test1 -o json | jq .data
