@@ -1,3 +1,3 @@
-# mamercado.github.io
+# mamercad.github.io
 
 My blog
