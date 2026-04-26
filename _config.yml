@@ -28,6 +28,10 @@ url: "https://mamercad.github.io" # the base hostname & protocol for your site, 
 twitter_username: mamercad
 github_username:  mamercad
 
+# Author portraits — use only these assets (synced from resume) anywhere a photo of you appears
+author_avatar_bw: "/assets/avatar-bw.png"
+author_avatar_color: "/assets/avatar-color.png"
+
 show_excerpts: true
 
 # Build settings

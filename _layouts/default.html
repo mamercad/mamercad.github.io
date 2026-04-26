@@ -22,7 +22,18 @@
   <body>
     <div class="page-shell">
       <nav class="site-nav" aria-label="Primary navigation">
-        <a class="brand" href="{{ "/" | relative_url }}">cloudmason notes</a>
+        <a class="brand" href="{{ "/" | relative_url }}">
+          <img
+            class="site-avatar"
+            src="{{ site.author_avatar_bw | relative_url }}"
+            width="32"
+            height="32"
+            alt="Mark Mercado"
+            loading="lazy"
+            decoding="async"
+          />
+          <span>cloudmason notes</span>
+        </a>
         <div class="nav-links">
           <a href="{{ "/" | relative_url }}">posts</a>
           <a href="{{ "/about/" | relative_url }}">about</a>
