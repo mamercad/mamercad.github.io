@@ -7,6 +7,8 @@
     <meta name="color-scheme" content="light dark">
     <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
     <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="icon" type="image/png" sizes="256x256" href="{{ site.author_avatar_bw | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ site.author_avatar_bw | relative_url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/site.css" | relative_url }}">
     {% if site.google_analytics %}
