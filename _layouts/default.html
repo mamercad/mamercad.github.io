@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | escape }}">
+    <meta name="color-scheme" content="light dark">
+    <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/site.css" | relative_url }}">
+    {% if site.google_analytics %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "{{ site.google_analytics }}");
+    </script>
+    {% endif %}
+  </head>
+  <body>
+    <div class="page-shell">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="brand" href="{{ "/" | relative_url }}">cloudmason notes</a>
+        <div class="nav-links">
+          <a href="{{ "/" | relative_url }}">posts</a>
+          <a href="{{ "/about/" | relative_url }}">about</a>
+          <a href="https://cloudmason.org/">cloudmason.org</a>
+          <a href="https://github.com/{{ site.github_username | default: 'mamercad' }}/">github</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle color theme">theme: light</button>
+        </div>
+      </nav>
+
+      {{ content }}
+
+      <footer class="footer-line">
+        <span>Catppuccin Latte + Mocha / JetBrainsMono Nerd Font Mono</span>
+        <span>notes-design, low chrome, high signal</span>
+      </footer>
+    </div>
+    <script src="{{ "/assets/theme.js" | relative_url }}"></script>
+  </body>
+</html>

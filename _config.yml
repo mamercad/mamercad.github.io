@@ -18,12 +18,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Mark Mercado's Blog
+title: Cloudmason Notes
 email: mamercad@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Mark Mercado currently works as a systems engineer for DigitalOcean.
-  His focus is cloud (private and public) infrastructure.
-  He has degrees in computer science and mathematics.
+  Field notes for infrastructure, homelab routes, keys, services, and the
+  small operational rituals that keep systems reachable.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://mamercad.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: mamercad

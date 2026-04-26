@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<main class="content-page">
+  <article class="post">
+    <header class="content-header">
+      <p class="eyebrow">~/cloudmason/notes/{{ page.date | date: "%Y/%m/%d" }}</p>
+      <h1>{{ page.title | escape }}</h1>
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+        {% if page.categories.size > 0 %}
+          <span>{{ page.categories | join: " / " }}</span>
+        {% endif %}
+      </div>
+    </header>
+
+    <div class="prose">
+      {{ content }}
+    </div>
+  </article>
+</main>

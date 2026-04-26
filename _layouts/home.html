@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div>
+      <p class="eyebrow">~/cloudmason/notes</p>
+      <h1 id="hero-title">Chop wood.<br><span class="accent">Carry packets.</span></h1>
+      <p class="lede">{{ site.description }}</p>
+    </div>
+
+    <aside class="terminal" aria-label="Blog terminal preview">
+      <div class="terminal-bar">
+        <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <span>~/cloudmason/notes/status</span>
+      </div>
+      <div class="terminal-body">
+        <div class="cmd">
+          <div class="prompt">$ notes status --short</div>
+          <div class="output">posts: {{ site.posts | size }}<br>topics: infra, homelab, security, ci<br>format: jekyll + markdown</div>
+        </div>
+        <div class="cmd">
+          <div class="prompt">$ motto</div>
+          <div class="output">chop wood, carry water.</div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  {{ content }}
+
+  <section class="post-list" aria-label="Posts">
+    {% for post in site.posts %}
+      <article class="post-row">
+        <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        <div class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+          {% if post.categories.size > 0 %}
+            <span>{{ post.categories | join: " / " }}</span>
+          {% endif %}
+        </div>
+        {% if site.show_excerpts %}
+          <p>{{ post.excerpt | strip_html | normalize_whitespace | truncate: 220 }}</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </section>
+</main>
