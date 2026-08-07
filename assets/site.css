@@ -1,44 +1,36 @@
 :root {
-  --font-mono: "JetBrainsMono Nerd Font Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
-  --text: #111111;
-  --subtext: #6B6560;
-  --overlay: #6B6560;
-  --surface: #F4F0EB;
-  --base: #FFFFFF;
-  --mantle: #E8E4DF;
-  --crust: #DDD7D1;
-  --accent: #FF4719;
-  --green: #1E6B3C;
-  --link: #1050A0;
-  --link-hover: #1A6ACC;
-  --prompt: #5A2D9A;
-  --error: #C0000A;
-  --grid: rgba(17, 17, 17, 0.04);
-  --line: rgba(17, 17, 17, 0.14);
-  --terminal-bg: rgba(232, 228, 223, 0.82);
-  --green-glow: rgba(30, 107, 60, 0.1);
-  --accent-glow: rgba(255, 71, 25, 0.07);
+  --font-mono: "JetBrainsMono Nerd Font Mono", "JetBrains Mono", ui-monospace, sfmono-regular, consolas, monospace;
+  --text: #111;
+  --subtext: #6b6560;
+  --overlay: #6b6560;
+  --surface: #f4f0eb;
+  --base: #fff;
+  --mantle: #e8e4df;
+  --crust: #ddd7d1;
+  --accent: #ff4719;
+  --link: #1050a0;
+  --link-hover: #1a6acc;
+  --error: #c0000a;
+  --grid: rgb(17 17 17 / 4%);
+  --line: rgb(17 17 17 / 14%);
+  --terminal-bg: rgb(232 228 223 / 55%);
 }
 
 [data-theme="dark"] {
-  --text: #E5DDD0;
-  --subtext: #5A5248;
-  --overlay: #5A5248;
+  --text: #e5ddd0;
+  --subtext: #5a5248;
+  --overlay: #5a5248;
   --surface: #181614;
   --base: #090807;
-  --mantle: #1D1A17;
-  --crust: #3D3530;
-  --accent: #FF4719;
-  --green: #7FD8A8;
-  --link: #6FB3F5;
-  --link-hover: #8BC3F8;
-  --prompt: #D8A8FF;
-  --error: #FF6B5B;
-  --grid: rgba(229, 221, 208, 0.045);
-  --line: rgba(229, 221, 208, 0.14);
-  --terminal-bg: rgba(29, 26, 23, 0.88);
-  --green-glow: rgba(127, 216, 168, 0.1);
-  --accent-glow: rgba(255, 71, 25, 0.1);
+  --mantle: #1d1a17;
+  --crust: #3d3530;
+  --accent: #ff4719;
+  --link: #6fb3f5;
+  --link-hover: #8bc3f8;
+  --error: #ff6b5b;
+  --grid: rgb(229 221 208 / 4.5%);
+  --line: rgb(229 221 208 / 14%);
+  --terminal-bg: rgb(29 26 23 / 88%);
 }
 
 * {
@@ -56,10 +48,8 @@ body {
   background:
     linear-gradient(var(--grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid) 1px, transparent 1px),
-    radial-gradient(circle at 78% 10%, var(--green-glow), transparent 34rem),
-    radial-gradient(circle at 8% 18%, var(--accent-glow), transparent 30rem),
     var(--base);
-  background-size: 28px 28px, 28px 28px, auto, auto, auto;
+  background-size: 28px 28px, 28px 28px, auto;
   font-family: var(--font-mono);
   transition: background-color 220ms ease, color 220ms ease;
 }
@@ -144,7 +134,7 @@ a.nav-link {
 
 a.nav-link:hover,
 a.nav-link:focus-visible {
-  color: var(--link-hover);
+  color: var(--accent);
 }
 
 a.nav-link.is-current {
@@ -166,6 +156,10 @@ a.nav-link.is-current {
   font: 700 12px/1 var(--font-mono);
 }
 
+.theme-toggle:hover {
+  border-color: var(--accent);
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
@@ -176,7 +170,7 @@ a.nav-link.is-current {
 
 .eyebrow {
   margin: 0 0 18px;
-  color: var(--prompt);
+  color: var(--accent);
   font-size: 13px;
   font-weight: 800;
 }
@@ -202,7 +196,7 @@ h1 {
 }
 
 .accent {
-  color: var(--green);
+  color: var(--accent);
 }
 
 .lede {
@@ -237,18 +231,11 @@ h1 {
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 999px;
-  background: var(--error);
-}
-
-.dot:nth-child(2) {
-  background: var(--prompt);
-}
-
-.dot:nth-child(3) {
-  background: var(--green);
+  background: transparent;
+  border: 1px solid var(--subtext);
 }
 
 .terminal-body {
@@ -263,7 +250,7 @@ h1 {
 }
 
 .prompt {
-  color: var(--prompt);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -355,7 +342,7 @@ h1 {
   border: 1px solid var(--line);
   border-radius: 7px;
   padding: 0.1em 0.35em;
-  color: var(--green);
+  color: var(--text);
   background: var(--terminal-bg);
   font-family: var(--font-mono);
   font-size: 0.92em;
@@ -377,10 +364,16 @@ h1 {
 }
 
 .prose blockquote {
-  border-left: 2px solid var(--green);
+  border-left: 2px solid var(--line);
   margin-left: 0;
   padding-left: 18px;
   color: var(--subtext);
+}
+
+.prose img {
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 18px;
 }
 
 .prose .author-photo {
@@ -395,12 +388,6 @@ h1 {
   border-radius: 999px;
   object-fit: cover;
   aspect-ratio: 1;
-}
-
-.prose img {
-  max-width: 100%;
-  border: 1px solid var(--line);
-  border-radius: 18px;
 }
 
 .prose table {
