@@ -34,13 +34,26 @@
             loading="lazy"
             decoding="async"
           />
-          <span>cloudmason notes</span>
+          <span>mamercad</span>
         </a>
         <div class="nav-links">
-          <a href="{{ "/" | relative_url }}">posts</a>
-          <a href="{{ "/about/" | relative_url }}">about</a>
-          <a href="https://cloudmason.org/">cloudmason.org</a>
-          <a href="https://github.com/{{ site.github_username | default: 'mamercad' }}/">github</a>
+          <a
+            class="nav-link"
+            href="https://cloudmason.org/"
+          >hub</a>
+          <a
+            class="nav-link is-current"
+            href="{{ "/" | relative_url }}"
+            aria-current="page"
+          >notes</a>
+          <a
+            class="nav-link"
+            href="https://mamercad.github.io/resume/"
+          >resume</a>
+          <a
+            class="nav-link"
+            href="https://github.com/{{ site.github_username | default: 'mamercad' }}/"
+          >github</a>
           <button class="theme-toggle" type="button" aria-label="Toggle color theme">theme: light</button>
         </div>
       </nav>
@@ -48,8 +61,8 @@
       {{ content }}
 
       <footer class="footer-line">
-        <span>Catppuccin Latte + Mocha / JetBrainsMono Nerd Font Mono</span>
-        <span>notes-design, low chrome, high signal</span>
+        <span>Designless Light + Dark / JetBrainsMono Nerd Font Mono</span>
+        <span>designless, low chrome, high signal</span>
       </footer>
     </div>
     <script src="{{ "/assets/theme.js" | relative_url }}"></script>
